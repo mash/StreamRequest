@@ -1,0 +1,27 @@
+multipart/mixed or MultipartXHR in Objective-C for iPhone
+
+ref: https://github.com/digg/stream
+
+usage:
+
+StreamRequest* req = [[[ StreamRequest alloc ] initWithURL: URL delegate: ret ] autorelease];
+[ req start ];
+
+// and play with callbacks
+
+#pragma mark -
+#pragma mark StreamRequestDelegate
+
+- (void) requestDidStartLoad: (StreamRequest*) request {
+}
+
+- (void) request: (StreamRequest*) request didReceiveJSON: (NSDictionary*) dic {
+}
+
+- (void) requestDidFinishLoad: (StreamRequest*) request {
+    [ self.request restart ]; // eternal :-)
+}
+
+- (void) request: (StreamRequest*)request didFailLoadWithError: (NSError*)error {
+
+}
